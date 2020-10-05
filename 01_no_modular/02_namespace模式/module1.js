@@ -7,7 +7,7 @@
 let module1 = {
   data:'atguigu',
 
-  test() {
+  demo:function() {
     console.log(this.data)
   }
 

@@ -3,12 +3,11 @@
 * */
 
 define(function (require,exports,module) {
-  let data = '--------module3---------'
+  let msg = 'module3-----内容'
 
-  function getData() {
-    console.log(data)
+  function fun3() {
+    console.log(msg.toUpperCase())
   }
 
-  module.exports = {getData}
-
+  exports.fun3 = fun3
 })

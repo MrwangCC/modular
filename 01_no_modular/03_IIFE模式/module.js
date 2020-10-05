@@ -5,20 +5,19 @@
  * 问题: 如果当前这个模块依赖另一个模块怎么办?
  */
 
-((w)=>{
-   //内的私有数据，不允许别热触碰
-   let data = 'atguigu'
+(()=>{
+  //敏感数据，不可以触碰
+  var data = 'atguigu'
+  var data2 = 123
 
-   function test() {
-     console.log(data)
-   }
+  function demo1() {
+    console.log(data.toLowerCase())
+  }
 
-  function test2() {
+  function demo2() {
     console.log(data.toUpperCase())
   }
 
-  let module1 = {test,test2}
-   //将module1暴露出去
-  w.module1 = module1
+  window.myModule = {demo1,demo2}
+})()
 
-})(window)

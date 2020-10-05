@@ -1,17 +1,13 @@
 /*
-* 定义一个没有依赖的module1
+* 定义一个没有依赖的模块,该模块暴露一个提供数据的方法
 * */
 
 define(function () {
-  //数据-----私有数据（只读）
-  let data = 'atguigu'
-  //获取数据的方法
-  function getDataL() {
-    return data.toLowerCase()
+  let data = 'hello,atguigu'//私密数据
+  
+  function getData() {
+    return data
   }
-  function getDataU() {
-    return data.toUpperCase()
-  }
-  return {getDataL,getDataU}
-})
 
+  return {getData}
+})

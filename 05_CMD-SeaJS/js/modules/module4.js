@@ -3,21 +3,19 @@
 * */
 
 define(function (require,exports,module) {
-  let data = '--------module4---------'
+  let msg = 'module4-----内容'
 
-  //引入module2-----同步引入
+  //同步引入module2
   let module2 = require('./module2')
-  module2.getData()
+  module2.fun2()
 
-  //引入module3-----异步引入
-  require.async('./module3',function (m3) {
-    m3.getData()
+  //异步引入module3
+  require.async('./module3',function (module3) {
+    module3.fun3()
   })
 
-  function getData() {
-    console.log(data)
+  function fun4() {
+    console.log(msg.toUpperCase())
   }
-
-  module.exports = {getData}
+  module.exports = fun4
 })
-
