@@ -17,6 +17,12 @@ function test2() {
     console.log('我是module2里的test2数组', arr);
 }
 
-// 统一暴露
+// 统一暴露(精简版)
 exports.demo2 = demo2;
 exports.test2 = test2;
+
+// 统一暴露(完整版)
+// export{
+//     demo2 as HH1,   // 暴露的同时可以赋一个别名
+//     test2 as HH2
+// }
