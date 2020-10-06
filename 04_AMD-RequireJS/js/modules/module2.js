@@ -1,13 +1,16 @@
-/*
-* 定义一个有依赖的模块，依赖于module1，要使用module1中的getData
-* */
+/** 
+ * 定义一个有依赖的module2，module2依赖于module1，要使用module1中的数据
+ */
 
-define(['module1'],function (module1) {
-  let msg = '0620,就业顺利'
+define([
+    'module1'
+], function (module1) {
+    let msg = '19971006';
 
-  function getDataAndMsg() {
-    return `${ module1.getData()},${msg}`
-  }
+    // 获取module1中的data和module2中的msg
+    function getDataMsg() {
+        return module1.getDataL() + msg;
+    }
 
-  return {getDataAndMsg}
-})
+    return getDataMsg;
+});

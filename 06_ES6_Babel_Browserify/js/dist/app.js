@@ -10,12 +10,14 @@ var _module3 = require("./module3");
 
 var _module4 = _interopRequireDefault(_module3);
 
+var _module5 = require("./module4");
+
+var _module6 = _interopRequireDefault(_module5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-// 引入module2，module2是统一暴露的(module2里面给暴露的内容起了别名)
-console.log(haha);
 // import {
 //     HH1,
 //     HH2
@@ -34,6 +36,12 @@ console.log(haha);
 // } from "./module1";
 
 // 引入module1，module1是分别暴露的(此种模式会将module暴露的内容，收集成一个对象)
+console.log(haha);
+
+// 引入module4，module4里用了多种暴露的方式
+
+
+// 引入module2，module2是统一暴露的(module2里面给暴露的内容起了别名)
 
 console.log(haha.data);
 haha.demo1();
@@ -45,3 +53,8 @@ haha.test1();
 console.log(_module4.default.name);
 console.log(_module4.default.age);
 _module4.default.speak();
+console.log('module4:', _module5.arr1, _module5.str, _module5.student, _module5.dog);
+(0, _module5.bar)();
+(0, _module5.foo)();
+_module5.dog.run();
+console.log(_module6.default);

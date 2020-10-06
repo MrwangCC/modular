@@ -276,12 +276,14 @@ var _module3 = require("./module3");
 
 var _module4 = _interopRequireDefault(_module3);
 
+var _module5 = require("./module4");
+
+var _module6 = _interopRequireDefault(_module5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-// 引入module2，module2是统一暴露的(module2里面给暴露的内容起了别名)
-console.log(haha);
 // import {
 //     HH1,
 //     HH2
@@ -300,6 +302,12 @@ console.log(haha);
 // } from "./module1";
 
 // 引入module1，module1是分别暴露的(此种模式会将module暴露的内容，收集成一个对象)
+console.log(haha);
+
+// 引入module4，module4里用了多种暴露的方式
+
+
+// 引入module2，module2是统一暴露的(module2里面给暴露的内容起了别名)
 
 console.log(haha.data);
 haha.demo1();
@@ -311,7 +319,12 @@ haha.test1();
 console.log(_module4.default.name);
 console.log(_module4.default.age);
 _module4.default.speak();
-},{"./module1":4,"./module2":5,"./module3":6}],4:[function(require,module,exports){
+console.log('module4:', _module5.arr1, _module5.str, _module5.student, _module5.dog);
+(0, _module5.bar)();
+(0, _module5.foo)();
+_module5.dog.run();
+console.log(_module6.default);
+},{"./module1":4,"./module2":5,"./module3":6,"./module4":7}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -382,4 +395,71 @@ exports.default = {
     }
 };
 }).call(this,require("timers").setImmediate)
-},{"timers":2}]},{},[3]);
+},{"timers":2}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.bar = bar;
+exports.foo = foo;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/** 
+ * 混合暴露
+ */
+
+// 分别暴露
+var arr1 = exports.arr1 = [1, 2, 3, 4, 5];
+
+function bar() {
+    console.log('module4---bar()');
+}
+
+function foo() {
+    console.log('module4---foo()');
+}
+
+// 统一暴露
+var str = 'Love_You';
+
+var student = {
+    name: 'kobe',
+    agr: 18
+};
+
+var Dog = function () {
+    function Dog(name, age) {
+        _classCallCheck(this, Dog);
+
+        this.name = name;
+        this.age = age;
+    }
+
+    _createClass(Dog, [{
+        key: 'run',
+        value: function run() {
+            console.log("跑");
+        }
+    }]);
+
+    return Dog;
+}();
+
+var dog = new Dog('旺财', '3');
+
+exports.str = str;
+exports.student = student;
+exports.dog = dog;
+
+// 默认暴露
+
+exports.default = {
+    school: 'GUET',
+    address: '北海'
+};
+},{}]},{},[3]);

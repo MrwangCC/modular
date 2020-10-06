@@ -25,6 +25,16 @@ import {
 // 引入module3，module3是默认暴露的
 import module3 from "./module3";
 
+// 引入module4，module4里用了多种暴露的方式
+import module4, {
+    arr1,
+    bar,
+    foo,
+    str,
+    student,
+    dog
+} from "./module4";
+
 console.log(haha);
 console.log(haha.data);
 haha.demo1();
@@ -36,3 +46,8 @@ test2();
 console.log(module3.name);
 console.log(module3.age);
 module3.speak();
+console.log('module4:', arr1, str, student, dog);
+bar();
+foo();
+dog.run();
+console.log(module4);
