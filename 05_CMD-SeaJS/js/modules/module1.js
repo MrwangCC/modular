@@ -1,13 +1,13 @@
 /*
-* 定义一个没有依赖的模块，module1
-* */
+ * 定义一个没有依赖的模块，module1
+ * */
 
-define(function (require,exports,module) {
-  let msg = 'module1-----内容'
+define(function (require, exports, module) {
+  let data = '---------- module1 ----------'
 
-  function fun1() {
-    console.log(msg.toUpperCase())
+  function getData() {
+    console.log(data);
   }
 
-  module.exports = fun1
-})
+  module.exports = {getData};
+});

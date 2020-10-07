@@ -2,12 +2,12 @@
 * 定义一个没有依赖的模块，module2
 * */
 
-define(function (require,exports,module) {
-  let msg = 'module2-----内容'
+define(function (require, exports, module) {
+  let data = '---------- module2 ----------'
 
-  function fun2() {
-    console.log(msg.toUpperCase())
+  function getData() {
+    console.log(data);
   }
 
-  exports.fun2 = fun2
-})
+  module.exports = {getData};
+});
